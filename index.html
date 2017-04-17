@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<!-- Assignment3 : Editable Invoice By Evan Bonsignori -->
+
+<head>
+    <title>Editable Invoice</title>
+    <link rel='stylesheet' type='text/css' href='css/main.css' />
+
+</head>
+
+<body>
+    <!-- Formatting Wrapper, Centers Content -->
+    <div id="wrapper">
+
+        <!-- Top Center of Page Heading Title -->
+        <div id="header">New Invoice</div>
+        
+        <!-- Top left, customer name, address, and contact information -->
+        <div id="identity"> 
+            <textarea class="address" id="nameAddress" 
+                      placeholder="First Name Last Name (George Harrison)" 
+                      maxlength="44" autofocus></textarea> 
+            </br>
+            <textarea class="address" id="streetAddress" 
+                      placeholder="Street Address (123 AppleBee Lane) "
+                      maxlength="44"></textarea>
+            </br>
+            <textarea class="address" id="cspAddress" 
+                      placeholder="City State Postal (Savannah GA 31410)"
+                      maxlength="44"></textarea>  
+            </br>
+            <textarea class="address" id="phoneAddress" 
+                      placeholder="Phone Number (912 542 1234)" 
+                      maxlength="14"></textarea> 
+            </br>
+            </br>               
+        </div>  
+        <!-- Top Right Table: Invoice Number, Date, and Amount Due Rows -->
+        <div id="customer">
+            <!-- Invoice ID And Data Have No Validation other than length and can be empty if need be -->
+            <table class="tables"> 
+                <tr>
+                    <td class="title">Invoice #</td> 
+                    <td><textarea class="titles" id="invoiceTitle" 
+                        placeholder="1234567890" maxlength="20"></textarea></td> 
+                </tr>  
+                <tr> 
+
+                    <td class="title">Date</td>
+                    <td><textarea class="titles" id="date" 
+                               maxlength="20">JavaScript Error</textarea></td>
+                </tr>
+                <tr>
+                    <td class="title">Amount Due</td>
+                    <td><div class="titles" id="due1">$1.75</div></td>
+                </tr> 
+
+            </table>
+
+        </div>
+        <!-- Above Data Forms - Invoice Title Can Be Edited -->
+        <div id="invoice"> INVOICE </div> 
+
+        <table id="items">
+
+            <tr>
+                <th>Item</th>
+                <th>Description</th>
+                <th>Unit Cost</th> 
+                <th>Quantity</th>
+                <th>Price</th>
+            </tr>
+            <!-- Two Data Rows Populated With Example Values. Additional ones can be added or removed -->
+            <tr class="item-row">
+                <td class="item-name">
+                    <div class="delete-parent">
+                        <textarea class="nameitem" maxlength="60">Web Updates</textarea>
+                          <!-- Javascript deleteRow(this) deletes this row -->
+                        <a class="delete" href="javascript:void(0)" onclick="deleteRow(this);" title="Remove row">
+                            X
+                        </a>
+                    </div>
+                </td>
+
+                <td class="description">
+                    <textarea class="namedescription" style="overflow:auto;" maxlength="500">Monthly updates for my site</textarea>
+                </td>
+                <td><textarea class="cost" onkeyup="updateTotal()" maxlength="15">$30.00</textarea></td>
+
+                <td><textarea class="qty" onkeyup="updateTotal()" maxlength="10">3</textarea></td> 
+
+                <td><span class="price">$90.00</span></td>
+            </tr> 
+
+            <tr class="item-row">
+                <td class="item-name">
+                    <div class="delete-parent">
+                        <textarea class="nameitem" maxlength="60">Fee</textarea>
+                        <a class="delete" href="javascript:void(0)" onclick="deleteRow(this);" title="Remove row">
+                            X
+                        </a>
+                    </div>
+                </td>
+
+                <td class="description"><textarea class="namedescription" maxlength="500" style="overflow:auto;">Processing Fees</textarea></td>
+                <td><textarea class="cost" onkeyup="updateTotal()" style="width:100%;" maxlength="15">$10.00</textarea></td>
+                <td><textarea class="qty" onkeyup="updateTotal()" maxlength="10">1</textarea></td> 
+                <td><span class="price">$10.00</span></td> 
+            </tr>
+            <!-- Button that calls Javascript to add additional Row With Default Values -->
+            <tr id="hiderow">
+                <td colspan="5" ><button onclick="addRow();" class="button" title="Add a row">Add a row</button></td>
+            </tr>
+        </table>
+
+        <div id="options"> 
+            <!-- Reset Resets Text all to null, Save To Databases is in the works, and Save to File saves invoice to file on server -->
+            <div id="actionbuttons">
+                <button type="button" id="bt-reset" onclick="resetValues()">Reset Values</button>
+                <button type="button" id="bt-refresh" onclick="refreshPage()">Reset Entire Form</button>
+                <br />
+                <form id="pageform" name="hiddenform" method="post" action="savetofile.php"
+                      style="display:inline;"> 
+                    <input type="button" id="bt-db" onclick="thankYouDB()" value="Save to Database" />
+                </form>    
+                <form id="hiddenform" name="hiddenform" method="post" action="php/thankyou"
+                      style="display:inline;">
+                    <input type="hidden" name="total" id="total" value="" />
+                    <input onclick="thankYou()" type="button" id="bt-file"  value="Save to File" />
+                </form>
+                <br />
+                <button type="button" id="bt-refresh" onclick="generateRandom()">Fill Out With Random Values</button>
+            </div>
+            <!-- View from file to view invoices stored on file. Database storage is in the works. -->
+            <div id="viewdata">
+                <a href="php/viewdbinvoices.php" > View Invoices from Database </a>
+                </br>
+                <a href="php/viewfileinvoices.php" > View Invoices from file </a>
+            </div>
+
+        </div>
+        <!-- Bottom Right Customer Totals : Tax is a percentage as shown in the 
+        example. Entering 5 will add 5% tax.  Amount paid will be subtracted 
+        from balance due-->
+        <table style="float:right; ">
+            <tr>
+                <td colspan="2">Tax %</td>
+                <td ><textarea class="sumTable" id="tax" onkeyup="updateTotal()">5</textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2">Subtotal</td>
+                <td><div class ="totals" id="subtotal">$100.00</div></td>
+            </tr>
+            <tr>
+                <td colspan="2" >Total</td>
+                <td><div class ="totals" id="totalamount">$105.00</div></td> 
+            </tr>
+            <tr>
+                <td colspan="2">Amount Paid</td>
+                <td ><textarea class="sumTable" id="paid" onkeyup="updateTotal()">$103.25</textarea></td>
+            </tr>
+            <tr>
+                <td colspan="2">Balance Due</td>
+                <td><div class ="totals" id="due2">$1.75</div></td>
+            </tr>
+
+        </table>
+    </div>
+
+    <!-- Scripts Loaded at bottom of page to save loadtime -->
+    <script>
+    //Refresh Page to Reset Entire Form
+    function refreshPage(){
+        window.location.reload();
+    } 
+    </script>
+    <script type='text/javascript' src='js/main.js'></script>
+    <script type='text/javascript' src='js/validation.js'></script>
+
+</body>
+
+</html>
