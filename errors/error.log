@@ -1,0 +1,4 @@
+[Mon Apr 17 19:09:13.636331 2017] [core:error] [pid 9870] (13)Permission denied: [client 127.0.0.1:49400] AH00132: file permissions deny server access: /var/www/invoice/index.html, referer: http://localhost2/php/viewfileinvoices
+[Mon Apr 17 19:09:15.830913 2017] [core:error] [pid 9870] (13)Permission denied: [client 127.0.0.1:49400] AH00132: file permissions deny server access: /var/www/invoice/index.html
+[Mon Apr 17 19:09:33.227099 2017] [core:error] [pid 10668] (13)Permission denied: [client 127.0.0.1:50418] AH00132: file permissions deny server access: /var/www/invoice/index.html
+[Mon Apr 17 19:09:34.308252 2017] [core:error] [pid 10668] (13)Permission denied: [client 127.0.0.1:50418] AH00132: file permissions deny server access: /var/www/invoice/index.html
