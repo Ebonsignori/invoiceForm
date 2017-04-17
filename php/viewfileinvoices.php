@@ -8,11 +8,11 @@
     </head>
 
     <body>
-        <div id="wrapper-thank-you">
+        <div id="wrapper-center">
 
             <div id="header">Invoices Stored In Files</div>
         </div>
-        <div id="wrapper-thank-you"
+        <div id="wrapper-center"
             <h1> Invoices: </h1>
         </div>
             <?PHP
@@ -125,7 +125,7 @@
             ?>
 
             <!-- Navigation Button -->
-            <div id="wrapper-thank-you" >
+            <div id="wrapper-center" >
                 <input class="select-button" style="min-width:200px;" type="button" 
                        onclick="location.href = '../index.html';" 
                        value="Go Back To New Invoice Page" />

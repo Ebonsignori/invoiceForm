@@ -7,22 +7,21 @@
     </head>
 
     <body>
-        <div id="wrapper-thank-you" style="width: 75%;">
+        <div id="wrapper-center-children" >
 
             <div id="header">Invoices Stored In Database</div>
-
+           
             <h1> Invoices: </h1>
 
             <p> Database Storage Coming Soon </p>
-
-            <div >
+                <div id="wrapper-center-children">
                 <input class="thanks-button" style="min-width:200px;" type="button" 
                        onclick="location.href = '../index.html';" 
                        value="Go Back To New Invoice Page" />
-            </div>
-
+                </div>
         </div>
 
+        
     </body>
 
 
