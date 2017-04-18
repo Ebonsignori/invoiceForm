@@ -120,7 +120,9 @@
                 <form id="hiddenform_db" name="hiddenform_db" method="post" action="php/thankyou"
                       style="display:inline;"> 
                     <input type="hidden" name="total-db" id="total-db" value="" />
-                    <input type="button" id="bt-db" onclick="thankYouDB()" value="Save to Database" />
+                    <input type="hidden" name="author-db" id="author-db" value="" />
+                    <input type="hidden" name="title-db" id="title-db" value="" />             
+                    <input type="button" id="bt-db" onclick="databaseWindow()" value="Save to Database" />
                 </form>    
                 <form id="hiddenform" name="hiddenform" method="post" action="php/thankyou"
                       style="display:inline;">
@@ -165,6 +167,20 @@
 
         </table>
     </div>
+    
+<!-- Confirmation Window -->
+<div id="window">
+    <h2> Save Invoice to Database </h2>
+      <label> Invoice Title: </label>
+      <div><input id="db-title-win" type="text" 
+                  placeholder="Web Design Invoice"/></div>
+      <label> Invoice Author: </label>
+      <div><input id="db-author-win" type="text" 
+                  placeholder="Evan Bonsignori" /></div>
+      <br />
+      <div><button onclick="thankYouDB()"> Save Invoice </button></div>
+      <div><button id="close-win" onclick="closeWindow()"> Close </button></div>
+</div>
 
     <!-- Scripts Loaded at bottom of page to save loadtime -->
     <script>
@@ -175,6 +191,7 @@
     </script>
     <script type='text/javascript' src='js/main.js'></script>
     <script type='text/javascript' src='js/validation.js'></script>
+    <script type='text/javascript' src='js/window.js'></script>
 
 </body>
 

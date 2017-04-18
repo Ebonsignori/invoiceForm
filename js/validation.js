@@ -9,11 +9,27 @@ function thankYou() {
 
 //Redirects to same thank you page as files, but submits different form
 function thankYouDB() {
-    if (validationAll() == true) {
+    if (windowValidation() == true) {
         var body = getEverything();
         document.getElementById("total-db").value = body;
+        var title = document.getElementById("db-title-win");
+        document.getElementById("title-db").value = title;
+        var author = document.getElementById("db-author-win");
+        document.getElementById("author-db").value = author;
         document.getElementById("hiddenform_db").submit();
     }
+}
+
+//Checks form validation and opens window to prompt for invoice title/author
+function databaseWindow() {
+    if (validationAll() == true) {
+        openWindow();
+    }
+}
+
+//Checks Validation of inoice title and author recieved from window prompt
+function windowValidation() {
+    return true;
 }
 
 //Checks Validation of all relevent fields. Returns true if function makes it to

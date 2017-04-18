@@ -253,3 +253,51 @@ table td, table th {
     border-radius: 5px;
     border: solid black;
 }
+
+/* Pop Up Verification Window */
+#window {
+    background-color: rgba(0, 0, 0, .9);
+    display: none; 
+    position: fixed; 
+    z-index: 1; 
+    top: 50%;
+    left: 50%;
+    margin-top: -175px; 
+    margin-left: -160px; 
+    width: 276px; 
+    height: 216px; 
+    overflow: hidden; 
+    border: 1px solid black;
+    padding: 25px;
+}
+
+#window *:NOT(button):NOT(input) {
+    color: white;
+    display: flex;
+    justify-content: center;
+}
+
+#window button {
+    font-size: 20px;
+}
+
+#window #close-win{
+    background-color: skyblue;
+}
+
+#window #close-win:hover {
+    background-color: red;
+}
+
+
+#window input{
+    width: 80%;
+}
+
+#window div{
+    display: flex;
+    justify-content: center;
+}
+
+
+

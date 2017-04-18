@@ -130,7 +130,7 @@
         } elseif (isset($_POST['total-db'])) {
             //Data from $POST method forms
             $invoiceContents = $_POST['total-db'];
-            $invoiceName = $_POST['name-db'];
+            $invoiceName = $_POST['title-db'];
             $invoiceAuthor = $_POST['author-db'];
             //Fail Message
             $failmsg = '<div id="wrapper-thank-you">
@@ -180,6 +180,25 @@
             } 
             if (!mysqli_query($conn, $insertdata) ) {
                 echo '<p>' . $failmsg . mysql_error() . '</p>';
+            } else {
+                
+                echo '<div id="wrapper-thank-you">
+		
+                    <div id="header">Confirm</div>
+        
+                    <h1> Thank You! </h1>
+                    <p> Invoice: ' . $invoiceName . ' has successfully
+                        been written to a file. </p>
+                    <div>
+                        <input class="thanks-button" type="button" 
+                            onclick="location.href = \'../php/viewdbinvoices.php\';" 
+                            value="View Database Invoice List" />
+                         </br>
+                        <input class="thanks-button" type="button" style="width: 35%;"
+                            onclick="location.href = \'../index.html\';" 
+                            value="Create New Form" />
+                    </div>
+                </div>';
             }
         }
 
