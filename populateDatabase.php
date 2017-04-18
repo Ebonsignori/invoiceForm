@@ -8,7 +8,7 @@ $user = 'eb3465';
 $pwd = '55452112eb';
 
 //SQL statements to be queried
-$newTable = 'CREATE TABLE invoices(invoice_id INT NOT NULL AUTO_INCREMENT, invoice_title VARCHAR(100) NOT NULL, invoice_author VARCHAR (50) NOT NULL, submission_date DATE, invoice_contents BLOB(1M) NOT NULL, PRIMARY KEY (invoice_id) ) ;'
+$newTable = 'CREATE TABLE invoices(invoice_id INT NOT NULL AUTO_INCREMENT, invoice_title VARCHAR(100) NOT NULL, invoice_author VARCHAR (50) NOT NULL, submission_date DATE, invoice_contents LONGBLOB NOT NULL, PRIMARY KEY (invoice_id) ) ;'
 
 			try {
 				$conn = mysqli_connect($server, $user, $pwd);
@@ -17,13 +17,10 @@ $newTable = 'CREATE TABLE invoices(invoice_id INT NOT NULL AUTO_INCREMENT, invoi
 					mysql_query('DROP TABLE invoices', $conn);
 				} 
 				mysql_query($newTable, $conn);
-
+   				mysql_close($conn);
             }
-            elseif (!mysql_query( $newTable, $conn)) {
-            	die ( $failmsg . mysql_error());
-            } 
-                
-                mysql_close($conn);
+                       
+             
 }
           
 /* From Command Prompt             

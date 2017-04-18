@@ -128,7 +128,10 @@
             
          //If save to database option, run the following:
         } elseif (isset($_POST['total-db'])) {
+            //Data from $POST method forms
             $invoiceContents = $_POST['total-db'];
+            $invoiceName = $_POST['name-db'];
+            $invoiceAuthor = $_POST['author-db'];
             //Fail Message
             $failmsg = '<div id="wrapper-thank-you">
 		
@@ -161,24 +164,22 @@
             $server = 'localhost';
             $user = 'eb3465';
             $pwd = '55452112eb';
+            $db = 'invoicestorage';
             
             //SQL statements
-            $insertdata = 'INSERT INTO invoice (invoice_contents) VALUES ('.$invoiceContents.');';
-
-            if (!$conn = mysqli_connect($server, $user, $pwd)) {
+            $insertdata = 'INSERT INTO invoices '
+             . '(invoice_title, invoice_author, creation_date, invoice_contents)'
+             . 'VALUES ( "'.$invoiceName.'",  "'.$invoiceAuthor.'", NOW()'
+             . ', "'.$invoiceContents.'")';
+            
+            $conn = mysqli_connect($server, $user, $pwd, $db);
+            
+            if (!$conn) {
+                printf("Connect failed: %s\n", mysqli_connect_error());
+                exit();
+            } 
+            if (!mysqli_query($conn, $insertdata) ) {
                 echo '<p>' . $failmsg . mysql_error() . '</p>';
-            }
-            if (!mysql_select_db( 'invoicestorage', $conn )) {
-                echo '<p>' . $failmsg . mysql_error() . '</p>';
-            }
-            if (!mysql_query( 'invoicestorage', $conn )) {
-                echo '<p>' . $failmsg . mysql_error() . '</p>';
-            }
-            if (!mysql_query( $insertdata, $conn )) {
-                echo '<p>' . $failmsg . mysql_error() . '</p>';
-            } else {  
-              echo '<p> SUCCESS </p>';
-              mysql_close($conn);
             }
         }
 
