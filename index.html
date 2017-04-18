@@ -117,8 +117,9 @@
                 <button type="button" id="bt-reset" onclick="resetValues()">Reset Values</button>
                 <button type="button" id="bt-refresh" onclick="refreshPage()">Reset Entire Form</button>
                 <br />
-                <form id="pageform" name="hiddenform" method="post" action="savetofile.php"
+                <form id="hiddenform_db" name="hiddenform_db" method="post" action="php/thankyou"
                       style="display:inline;"> 
+                    <input type="hidden" name="total-db" id="total-db" value="" />
                     <input type="button" id="bt-db" onclick="thankYouDB()" value="Save to Database" />
                 </form>    
                 <form id="hiddenform" name="hiddenform" method="post" action="php/thankyou"

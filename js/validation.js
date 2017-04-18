@@ -7,13 +7,12 @@ function thankYou() {
     }
 }
 
-//Feature needs to be implemented 
+//Redirects to same thank you page as files, but submits different form
 function thankYouDB() {
     if (validationAll() == true) {
-        alert("Save to database feature coming soon!");
-        //var body = getEverything();
-        // document.getElementById("total").value = body;
-        //document.getElementById("hiddenform").submit();
+        var body = getEverything();
+        document.getElementById("total-db").value = body;
+        document.getElementById("hiddenform_db").submit();
     }
 }
 

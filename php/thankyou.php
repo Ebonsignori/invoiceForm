@@ -7,45 +7,48 @@
 
     <body>
         <?PHP
-        /* Iterates through files in folder, accounts for the ones that 
-         * aren't invoices and then displays respective status message if successful,
-         * unable to open, or unable to write a new invoice to file. 
-         * Includes naviagtion buttons */
+        
+        //If save to file option, run the following:
+        if (isset($_POST['total'])) {
+            /* Iterates through files in folder, accounts for the ones that 
+             * aren't invoices and then displays respective status message if successful,
+             * unable to open, or unable to write a new invoice to file. 
+             * Includes naviagtion buttons */
 
-        //Filter non-invoice files by extension
-        $files = scandir('.');
-        foreach ($files as $file) {
-            $fileExt = substr($file, -4, 5);
+            //Filter non-invoice files by extension
+            $files = scandir('.');
+            foreach ($files as $file) {
+                $fileExt = substr($file, -4, 5);
 
-            if ($fileExt == ".txt") {
-                $invoices[] = $file;
+                if ($fileExt == ".txt") {
+                    $invoices[] = $file;
+                }
             }
-        }
-        if (isset($invoices)) {
-            //Find highest invoice number 
-            foreach ($invoices as $file2) {
-                $fileNumbers[] = (int) substr($file2, 7, (strlen($file2) - 3));
-            }
-            $fileNumber = max($fileNumbers);
-        } else {
-            $fileNumber = 0;
-        }
-        $filename = 'invoice' . ++$fileNumber . '.txt';
-        //Creates a file with filenumber one greater than highest invoice
-        if ($fileHandle = fopen($filename, "w")) {
-            if (flock($fileHandle,LOCK_EX)) {
-                
-            $content = $_POST['total'];
-            fwrite($fileHandle, $fileNumber . $content);
-            flock($fileHandle,LOCK_UN);
+            if (isset($invoices)) {
+                //Find highest invoice number 
+                foreach ($invoices as $file2) {
+                    $fileNumbers[] = (int) substr($file2, 7, (strlen($file2) - 3));
+                }
+                $fileNumber = max($fileNumbers);
             } else {
-                echo '<h1> Error Locking Resourses Please Try Again.</h1>';
-                DIE;
+                $fileNumber = 0;
             }
-            
-            if (fclose($fileHandle)) {
-                chmod($filename, 0777); 
-                echo '
+            $filename = 'invoice' . ++$fileNumber . '.txt';
+            //Creates a file with filenumber one greater than highest invoice
+            if ($fileHandle = fopen($filename, "w")) {
+                if (flock($fileHandle, LOCK_EX)) {
+
+                    $content = $_POST['total'];
+                    fwrite($fileHandle, $fileNumber . $content);
+                    flock($fileHandle, LOCK_UN);
+                } else {
+                    echo '<h1> Error Locking Resourses Please Try Again.</h1>';
+                    DIE;
+                }
+
+                if (fclose($fileHandle)) {
+                    chmod($filename, 0777);
+                    echo '
 		<div id="wrapper-thank-you">
 		
                     <div id="header">Confirm</div>
@@ -63,8 +66,8 @@
                             value="Create New Form" />
                     </div>
                 </div>';
-            } else {
-                echo '
+                } else {
+                    echo '
                     <div id="wrapper-thank-you">
 		        <div id="header">Failure To Write To File</div>
         
@@ -93,9 +96,9 @@
                                 value="Create New Form" />
                         </div>
                     </div>';
-            }
-        } else {
-            echo '<div id="wrapper-thank-you">
+                }
+            } else {
+                echo '<div id="wrapper-thank-you">
 		
                     <div id="header">Failure To Open File</div>
         
@@ -121,6 +124,18 @@
                             value="Create New Form" />
                     </div>
                 </div>';
+            }
+            //If save to file option, run the following:
+        } elseif (isset($_POST['total-db'])) {
+            $server = 'localhost:80';
+            $user = 'eb3465';
+            $pwd = '55452112eb';
+            
+            if (!mysqli_connect($server, $user, $pwd)) {
+                die('Could Not Connect : ' . mysql_error());
+            } else {
+                echo '<p> Connection Success!';
+            }
         }
         ?>
 

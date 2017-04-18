@@ -7,7 +7,7 @@
     </head>
 
     <body>
-        <div id="wrapper-thank-you" style="width: 75%;">
+        <div id="wrapper-center-children">
 
             <div id="header">Delete Invoice Page </div>
             <?PHP
@@ -22,7 +22,7 @@
             }
             ?>	
             <!-- Naviagtion buttons to go back to other pages -->
-            <div >
+            <div id="wrapper-center-children">
                 <input class="thanks-button" style="min-width:200px;" type="button" 
                        onclick="location.href = 'viewfileinvoices.php';" 
                        value="Go Back to Invoice List" />
