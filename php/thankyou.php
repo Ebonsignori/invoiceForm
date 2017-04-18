@@ -6,7 +6,7 @@
     </head>
 
     <body>
-        <?PHP
+<?PHP
         
         //If save to file option, run the following:
         if (isset($_POST['total'])) {
@@ -125,24 +125,64 @@
                     </div>
                 </div>';
             }
-            //If save to file option, run the following:
+            
+         //If save to database option, run the following:
         } elseif (isset($_POST['total-db'])) {
-            $server = 'localhost:80';
+            $invoiceContents = $_POST['total-db'];
+            //Fail Message
+            $failmsg = '<div id="wrapper-thank-you">
+		
+                    <div id="header">Failure To Save to Database</div>
+        
+                    <h1> Sorry... </h1>
+                    <p> Looks like we couldn\'t save to the database <b> :( 
+                        </b> </br>
+			Please try again later or contact me at </br>
+                        evanbonsignori@yahoo.com and I\'ll fix it.
+			</br>  </br>I\'ll look at it and get back to you. 
+                        </br></br>
+			Thank you for your patience, </br>
+                        Evan
+        
+                    </p>
+                    
+                    <div>
+                        <input class="thanks-button" type="button" 
+                            onclick="location.href = \'../php/viewdbinvoices.php\';" 
+                            value="View Database Invoice List" />
+                         </br>
+                        <input class="thanks-button" type="button" style="width: 35%;"
+                            onclick="location.href = \'../index.html\';" 
+                            value="Create New Form" />
+                    </div>
+                </div>';  
+            
+            //Server Info
+            $server = 'localhost';
             $user = 'eb3465';
             $pwd = '55452112eb';
             
-            if (!mysqli_connect($server, $user, $pwd)) {
-                die('Could Not Connect : ' . mysql_error());
-            } else {
-                echo '<p> Connection Success!';
+            //SQL statements
+            $insertdata = 'INSERT INTO invoice (invoice_contents) VALUES ('.$invoiceContents.');';
+
+            if (!$conn = mysqli_connect($server, $user, $pwd)) {
+                echo '<p>' . $failmsg . mysql_error() . '</p>';
+            }
+            if (!mysql_select_db( 'invoicestorage', $conn )) {
+                echo '<p>' . $failmsg . mysql_error() . '</p>';
+            }
+            if (!mysql_query( 'invoicestorage', $conn )) {
+                echo '<p>' . $failmsg . mysql_error() . '</p>';
+            }
+            if (!mysql_query( $insertdata, $conn )) {
+                echo '<p>' . $failmsg . mysql_error() . '</p>';
+            } else {  
+              echo '<p> SUCCESS </p>';
+              mysql_close($conn);
             }
         }
+
         ?>
-
-
-
-
-
 
     </body>
 
