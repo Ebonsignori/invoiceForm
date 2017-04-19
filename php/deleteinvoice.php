@@ -8,7 +8,7 @@
 
     <body>
         <div class="wrapper-center-children">
-
+            <!-- TODO: Implement database invoice deletion -->
             <div id="header">Delete Invoice Page </div>
             <?PHP
             //Use unlink to delete invoice file, display error if unable

@@ -25,7 +25,7 @@
               {
               echo "Failed to connect to MySQL: " . mysqli_connect_error();
               }
-
+            // TODO: Implment list in order of title, author, and date.
             //Determine order to sort invoices by
             $orderBy = $_POST['order-by'];
             if (isset($orderBy)) {

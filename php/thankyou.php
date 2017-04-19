@@ -162,7 +162,7 @@
                             value="Create New Form" />
                     </div>
                 </div>';
-
+            //TODO: Secure MySql login info
             //Server Info
             $server = 'localhost';
             $user = 'eb3465';

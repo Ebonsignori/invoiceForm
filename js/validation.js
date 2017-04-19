@@ -27,6 +27,7 @@ function databaseWindow() {
   }
 }
 
+// TODO: Implement database validation
 //Checks Validation of inoice title and author recieved from window prompt
 function windowValidation() {
   return true;
