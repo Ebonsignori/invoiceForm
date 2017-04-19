@@ -189,7 +189,7 @@
                     <div id="header">Confirm</div>
 
                     <h1> Thank You! </h1>
-                    <p> Invoice: <strong>' . $invoiceName . '</strong> has successfully
+                    <p> Invoice: <b> ' . $invoiceName . ' </b> has successfully
                         been written to a file. </p>
                     <div id="wrapper-center-children">
                         <input class="thanks-button" type="button"
