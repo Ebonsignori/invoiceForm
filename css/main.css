@@ -75,6 +75,11 @@ textarea:hover {
     text-align: center;
 }
 
+.status-box {
+  postion: absolute;
+  top: -15px;
+}
+
 table {
     border-collapse: collapse;
 }

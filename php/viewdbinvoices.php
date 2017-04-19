@@ -30,10 +30,10 @@
             $orderBy = $_POST['order-by'];
             if (isset($orderBy)) {
                 //SQL select statment to display titles in specified order
-                $sqlSelect='SELECT invoice_title FROM invoices ORDER BY '.$orderBy.'';
+                $sqlSelect='SELECT * FROM invoices ORDER BY '.$orderBy.'';
             } else {
               //Sort by submission_date/creation date by default
-                $sqlSelect="SELECT invoice_title FROM invoices ORDER BY submission_date";
+                $sqlSelect="SELECT * FROM invoices ORDER BY submission_date";
             }
 
             if ($result=mysqli_query($conn,$sqlSelect, MYSQLI_USE_RESULT))
@@ -44,19 +44,27 @@
             $numberOfRows = count($rows);
             for ($i = 0; $i < $numberOfRows; $i++) {
               echo '<div id="thank-you-buttons">
-          <form id="' . $rows[$i][0]   . 'Select" name="invoiceSelect"
-              method="post" action="viewinvoice">
-                 <input type="hidden" name="invoiceTitle" value="'
+          <form method="post" action="viewinvoice">
+                 <input type="hidden" name="invoice-number" value="'
               . $rows[$i][0] . '" />
+                <input type="hidden" name="invoice-name" value="'
+              . $rows[$i][1] . '" />
+                <input type="hidden" name="invoice-author" value="'
+              . $rows[$i][2] . '" />
+                 <input type="hidden" name="creation-date" value="'
+              . $rows[$i][3] . '" />
+                  <input type="hidden" name="invoice-contents" value="'
+              . $rows[$i][4] . '" />
                  <input style="float:left; margin: 5px;" class="select-button"
-                 type="submit" value="View: ' . $rows[$i][0] . '" />
+                 type="submit" value="View: ' . $rows[$i][1] . '" />
          </form>
-         <form id="' . $rows[$i][0]  . 'Delete" name="invoiceSelect"
-             method="post" action="deleteinvoice">
-                 <input type="hidden"  name="invoiceTitleDel" value="' .
-              $rows[$i][0] . '" />
-                 <input style="float:right;  margin: 5px;" class="select-button"
-                 type="submit" value="Delete: ' . $rows[$i][0] . '" />
+         <form method="post" action="deleteinvoice">
+              <input type="hidden" name="invoice-number" value="'
+                . $rows[$i][0] . '" />
+              <input type="hidden"  name="invoiceTitleDel" value="' .
+              $rows[$i][1] . '" />
+              <input style="float:right;  margin: 5px;" class="select-button"
+                 type="submit" value="Delete: ' . $rows[$i][1] . '" />
          </form>
       </div>';
             }

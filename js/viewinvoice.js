@@ -1,5 +1,10 @@
 //View Invoice From String Passed through PHP $_POST
-function viewInvoice(everything) {
+function viewInvoice (everything, invoiceName, invoiceAuthor, creationDate) {
+    if (invoiceName != "-1") {
+      document.getElementById('author').innerHTML = "Created By: " + invoiceAuthor;
+      document.getElementById('date-created').innerHTML = "Created On: " + creationDate;
+    }
+
     var invoiceNumber = everything.substring(0, everything.indexOf('*'));
     var invoiceNumberLength = invoiceNumber.toString().length;
     var current;
@@ -31,8 +36,12 @@ function viewInvoice(everything) {
         end = everything.indexOf("**end**", current); //Find End Index
         current = end + 7; //Account for end index marker
 
+      if (invoiceName == '-1') {
         header.innerHTML = "Invoice #" + invoiceNumber;
-                ;
+      } else {
+          header.innerHTML = invoiceName;
+      }
+
 
         for (i = 0; i < 4; i++) {
             end = everything.indexOf("**end**", current);
