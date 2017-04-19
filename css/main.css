@@ -1,6 +1,6 @@
 /* CSS for invoice index.HTML */
 
-body {  
+body {
     font-family: "Times New Roman", Georgia, Serif;
 }
 
@@ -14,28 +14,28 @@ input {
 
 
 button:hover,input:hover {
-    background-color: #007bb6; 
+    background-color: #007bb6;
 }
 
-textarea { 
+textarea {
     border: 0;
     font-family: "Times New Roman", Georgia, Serif;
     overflow: hidden;
-    resize: none; 
+    resize: none;
 }
 
 textarea::-webkit-input-placeholder {
     color: black;
 }
 
-textarea:hover { 
+textarea:hover {
     background-color: #E5E5E5;
 }
 
 
 #wrapper {
     width: 800px;
-    margin: 0 auto; 
+    margin: 0 auto;
 }
 
 #wrapper-center-children * {
@@ -50,7 +50,7 @@ textarea:hover {
 
 #wrapper-buttons {
     width: 900px;
-    margin: 0 auto; 
+    margin: 0 auto;
 }
 
 #wrapper-buttons *:not(#header) {
@@ -61,12 +61,12 @@ textarea:hover {
 
 #invoice  {
     width: 800px;
-    margin: 0 auto; 
+    margin: 0 auto;
 }
 
 #invoice-wrapper {
     width: 800px;
-    margin: 0 auto; 
+    margin: 0 auto;
 }
 
 #invoice-wrapper *:not(#header) {
@@ -79,12 +79,12 @@ table {
     border-collapse: collapse;
 }
 
-table td, table th { 
+table td, table th {
     border: 1px solid black;
-    padding: 5px; 
+    padding: 5px;
 }
 
-#header { 
+#header {
     height: 30px;
     width: 100%;
     background: #222;
@@ -92,8 +92,8 @@ table td, table th {
     color: white;
     font: bold 15px Helvetica, Sans-Serif;
     text-transform: uppercase;
-    letter-spacing: 20px; 
-    padding: 8px 0px; 
+    letter-spacing: 20px;
+    padding: 8px 0px;
 }
 
 #identity {
@@ -109,33 +109,33 @@ table td, table th {
     resize: none;
     float: left;
     display: block;
-    text-align: left; 
+    text-align: left;
 }
 
-#invoice { 
+#invoice {
     position:relative;
     font-size: 25px;
     font-weight: bold;
-    float: left; 
+    float: left;
     height: 25px;
 }
 
-#customer { 
-    float: right; 
-    overflow: hidden; 
+#customer {
+    float: right;
+    overflow: hidden;
 }
 
 
-.tables td.title { 
-    text-align: left; 
-    background: grey; 
+.tables td.title {
+    text-align: left;
+    background: grey;
 }
 
-.tables td { 
+.tables td {
     text-align: right;
 }
 
-.tables td textarea { 
+.tables td textarea {
     width: 100%;
     height: 20px;
     text-align: right;
@@ -147,17 +147,17 @@ table td, table th {
     margin: 30px 0 0 0;
     border: 1px solid black;
 }
-#items th { 
+#items th {
     background: grey;
 }
 
 #items textarea {
     width: 80px;
-    height: 50px; 
+    height: 50px;
 }
 
 #items tr.item-row td {
-    border: 0; 
+    border: 0;
     vertical-align: top;
 }
 #items td.description {
@@ -166,26 +166,26 @@ table td, table th {
 #items td.item-name {
     width: 175px;
 }
-#items td.description textarea, #items td.item-name textarea { 
-    width: 100%; 
+#items td.description textarea, #items td.item-name textarea {
+    width: 100%;
 }
-#items td.total-line { 
-    border-right: 0; 
-    text-align: right; 
+#items td.total-line {
+    border-right: 0;
+    text-align: right;
 }
-#items td.total-value { 
-    border-left: 0; 
-    padding: 10px; 
+#items td.total-value {
+    border-left: 0;
+    padding: 10px;
 }
-#items td.total-value textarea { 
-    height: 20px; 
-    background: none; 
+#items td.total-value textarea {
+    height: 20px;
+    background: none;
 }
-#items td.balance { 
-    background: #eee; 
+#items td.balance {
+    background: #eee;
 }
-#items td.blank { 
-    border: 0; 
+#items td.blank {
+    border: 0;
 }
 
 #options {
@@ -212,9 +212,9 @@ table td, table th {
 }
 
 .delete-parent {
-    position: relative; 
+    position: relative;
 }
-.delete { 
+.delete {
     display: block;
     position: absolute;
     color: #000;
@@ -240,7 +240,7 @@ table td, table th {
 .sumTable {
     font-family: default;
     font-size: 17px;
-    resize: none; 
+    resize: none;
     height: 14px;
 }
 
@@ -257,16 +257,16 @@ table td, table th {
 /* Pop Up Verification Window */
 #window {
     background-color: rgba(0, 0, 0, .9);
-    display: none; 
-    position: fixed; 
-    z-index: 1; 
+    display: none;
+    position: fixed;
+    z-index: 1;
     top: 50%;
     left: 50%;
-    margin-top: -175px; 
-    margin-left: -160px; 
-    width: 276px; 
-    height: 216px; 
-    overflow: hidden; 
+    margin-top: -175px;
+    margin-left: -160px;
+    width: 276px;
+    height: 216px;
+    overflow: hidden;
     border: 1px solid black;
     padding: 25px;
 }
@@ -298,6 +298,3 @@ table td, table th {
     display: flex;
     justify-content: center;
 }
-
-
-

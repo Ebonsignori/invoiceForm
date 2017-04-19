@@ -5,7 +5,7 @@ function viewInvoice(everything) {
     var current;
     var next;
     var end;
-    
+
     // Get all div elements
     var status = document.getElementById('status');
     var header = document.getElementById('header');
@@ -22,7 +22,7 @@ function viewInvoice(everything) {
     var rowLen;
 
     // Check to make sure string recieved through POST is valid
-    if (everything.substring(invoiceNumberLength, 14 + invoiceNumberLength) 
+    if (everything.substring(invoiceNumberLength, 14 + invoiceNumberLength)
             == "**everything**") {
         status.innerHTML = "Invoice Loaded Successfully";
 
@@ -156,11 +156,10 @@ function viewInvoice(everything) {
                 current = next + 8;
             }
         }
-        
+
      //Update status if invoice not correctly loaded from $Post data
     } else {
         status.innerHTML = "Error: Invoice Not Loaded Correctly";
         alert("Contact Admin at evanbonsignori@yahoo.com");
 }
 }
-

@@ -1,3 +1,4 @@
-#Invoice Forms
+# Invoice Forms
+*By Evan Bonsignori*
 
-A Simple invoice form that saves invoices to a MySQL database.
+Invoice form that can save to file or database.

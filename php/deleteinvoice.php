@@ -7,28 +7,26 @@
     </head>
 
     <body>
-        <div id="wrapper-center-children">
+        <div class="wrapper-center-children">
 
             <div id="header">Delete Invoice Page </div>
             <?PHP
             //Use unlink to delete invoice file, display error if unable
             $filepath = "./invoice" . $_POST['invoiceNumDel'] . ".txt";
-            fclose($filepath);
-            chown($filepath, 666); 
             if (unlink($filepath)) {
                 echo '<h2> Invoice Deleted Successfully </h2>';
             } else {
                 echo '<h2> There was an error  deleting your file </h2>';
             }
-            ?>	
+            ?>
             <!-- Naviagtion buttons to go back to other pages -->
-            <div id="wrapper-center-children">
-                <input class="thanks-button" style="min-width:200px;" type="button" 
-                       onclick="location.href = 'viewfileinvoices.php';" 
+            <div>
+                <input class="thanks-button" style="min-width:200px;" type="button"
+                       onclick="location.href = 'viewfileinvoices.php';"
                        value="Go Back to Invoice List" />
                 </br>
                 <input class="thanks-button" style="min-width:150px;" type="button"
-                       onclick="location.href = '../index.html';" 
+                       onclick="location.href = '../index.html';"
                        value="Create New Form" />
             </div>
 
