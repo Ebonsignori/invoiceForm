@@ -49,19 +49,21 @@
                 if (fclose($fileHandle)) {
                     chmod($filename, 0777);
                     echo '
-		<div id="wrapper-thank-you">
+		                  <div id="wrapper-center-children">
 
                     <div id="header">Confirm</div>
 
                     <h1> Thank You! </h1>
                     <p> Invoice #' . $fileNumber . ' has successfully
                         been written to a file. </p>
-                    <div>
+                    <div id="wrapper-center-children">
                         <input class="thanks-button" type="button"
                             onclick="location.href = \'../php/viewfileinvoices.php\';"
                             value="View File Invoice List" />
                          </br>
-                        <input class="thanks-button" type="button" style="width: 35%;"
+                    </div>
+                    <div>
+                        <input class="thanks-button" type="button"
                             onclick="location.href = \'../index.html\';"
                             value="Create New Form" />
                     </div>
@@ -91,7 +93,9 @@
                                 onclick="location.href = \'../php/viewfileinvoices.php\';"
                                 value="View File Invoice List" />
                              </br>
-                            <input class="thanks-button" type="button" style="width: 35%;"
+                             </div>
+                             <div>
+                            <input class="thanks-button" type="button"
                                 onclick="location.href = \'../index.html\';"
                                 value="Create New Form" />
                         </div>
@@ -119,7 +123,9 @@
                             onclick="location.href = \'../php/viewfileinvoices.php\';"
                             value="View File Invoice List" />
                          </br>
-                        <input class="thanks-button" type="button" style="width: 35%;"
+                    </div>
+                    <div>
+                        <input class="thanks-button" type="button"
                             onclick="location.href = \'../index.html\';"
                             value="Create New Form" />
                     </div>
@@ -134,7 +140,7 @@
             $invoiceAuthor = $_POST['author-db'];
 
             //Fail Message
-            $failmsg = '<div id="wrapper-center-children">
+            $failmsg = '<div class="wrapper-center-children">
 
                     <div id="header">Failure To Save to Database</div>
 
@@ -150,13 +156,13 @@
 
                     </p>
 
-                    <div id="wrapper-center-children">
+                    <div class="wrapper-center-children">
                         <input class="thanks-button" type="button"
                             onclick="location.href = \'../php/viewdbinvoices.php\';"
                             value="View Database Invoice List" />
                          </br>
                          </div>
-                         <div id="wrapper-center-children">
+                         <div class="wrapper-center-children">
                         <input class="thanks-button" type="button" style="width: 35%;"
                             onclick="location.href = \'../index.html\';"
                             value="Create New Form" />

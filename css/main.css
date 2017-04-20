@@ -17,6 +17,19 @@ button:hover,input:hover {
     background-color: #007bb6;
 }
 
+#delete-bt {
+float:right;
+opacity: 0.9;
+background-color:#d24511;
+background-color:rgba(210, 69, 17, 0.9);
+margin: 5px;
+}
+
+#delete-bt:hover {
+background-color:#b61616;
+background-color:rgb(182, 22, 22);
+}
+
 textarea {
     border: 0;
     font-family: "Times New Roman", Georgia, Serif;

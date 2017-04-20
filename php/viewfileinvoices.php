@@ -24,7 +24,7 @@
             foreach ($files as $file) {
                 $fileExt = substr($file, -4, 5);
 
-                //Parse Proper Filenumber. Only supports up to 999 invoices 
+                //Parse Proper Filenumber. Only supports up to 999 invoices
                 if (strlen($file) > 13) {
                     $threeDigitFiles[] = $file;
                     continue;
@@ -41,26 +41,26 @@
                     echo
                     '<div id="thank-you-buttons">
                     <form id="invoice' . $fileNum . 'Select" name="invoiceSelect"
-                        method="post" action="viewinvoice"> 
+                        method="post" action="viewinvoice">
                            <input type="hidden" name="invoiceNum" value="'
                     . $fileNum . '" />
-                           <input style="float:left;" 
-                           class="select-button" 
+                           <input style="float:left; margin: 5px;"
+                           class="select-button"
                            type="submit" value="View Invoice' . $fileNum . '" />
-                   </form> 
+                   </form>
                    <form id="invoice' . $fileNum . 'Delete" name="invoiceSelect"
-                       method="post" action="deleteinvoice"> 
+                       method="post" action="deleteinvoice">
                            <input type="hidden"  value="' .
                     $fileNum . '" />
-                           <input style="float:right;" name="invoiceNumDel"
-                           class="select-button" 
+                           <input id="delete-bt" name="invoiceNumDel"
+                           class="select-button"
                            type="submit" value="Delete Invoice' . $fileNum . '" />
-                   </form> 
+                   </form>
                 </div>';
                 }
             }
             if (isset($twoDigitFiles)) {
-                //Display Two Digit Invoices 
+                //Display Two Digit Invoices
                 foreach ($twoDigitFiles as $file) {
                     $fileExt = substr($file, -4, 5);
                     $fileNum = substr($file, 7, 2);
@@ -71,25 +71,25 @@
                         echo
                         '<div id="thank-you-buttons">
                     <form id="invoice' . $fileNum . 'Select" name="invoiceSelect"
-                        method="post" action="viewinvoice"> 
+                        method="post" action="viewinvoice">
                            <input type="hidden" name="invoiceNum" value="'
                         . $fileNum . '" />
-                           <input style="float:left;" class="select-button" 
+                           <input style="float:left; margin: 5px;" class="select-button"
                            type="submit" value="View Invoice' . $fileNum . '" />
-                   </form> 
+                   </form>
                    <form id="invoice' . $fileNum . 'Delete" name="invoiceSelect"
-                       method="post" action="deleteinvoice"> 
+                       method="post" action="deleteinvoice">
                            <input type="hidden"  name="invoiceNumDel" value="' .
                         $fileNum . '" />
-                           <input style="float:right;" class="select-button" 
+                           <input id="delete-bt" class="select-button"
                            type="submit" value="Delete Invoice' . $fileNum . '" />
-                   </form> 
+                   </form>
                 </div>';
                     }
                 }
             }
 
-            //Display Three Digit Invoices 
+            //Display Three Digit Invoices
             if (isset($threeDigitFiles)) {
                 foreach ($threeDigitFiles as $file) {
                     $fileExt = substr($file, -4, 5);
@@ -101,19 +101,18 @@
                         echo
                         '<div id="thank-you-buttons">
                     <form id="invoice' . $fileNum . 'Select" name="invoiceSelect"
-                        method="post" action="viewinvoice"> 
+                        method="post" action="viewinvoice">
                            <input type="hidden" name="invoiceNum" value="'
                         . $fileNum . '" />
-                           <input style="float:left;" class="select-button" 
+                           <input style="float:left; margin: 5px;" class="select-button"
                            type="submit" value="View Invoice' . $fileNum . '" />
-                   </form> 
-                   <form id="invoice' . $fileNum . 'Delete" name="invoiceSelect"
-                       method="post" action="deleteinvoice"> 
+                   </form>
+                   <form name="invoiceSelect" method="post" action="deleteinvoice">
                            <input type="hidden"  name="invoiceNumDel" value="' .
                         $fileNum . '" />
-                           <input style="float:right;" class="select-button" 
+                           <input  id="delete-bt"        class="select-button"
                            type="submit" value="Delete Invoice' . $fileNum . '" />
-                   </form> 
+                   </form>
                 </div>';
                     }
                 }
@@ -126,8 +125,8 @@
 
             <!-- Navigation Button -->
             <div id="wrapper-center" >
-                <input class="select-button" style="min-width:200px;" type="button" 
-                       onclick="location.href = '../index.html';" 
+                <input class="select-button" style="min-width:200px;" type="button"
+                       onclick="location.href = '../index.html';"
                        value="Go Back To New Invoice Page" />
             </div>
 

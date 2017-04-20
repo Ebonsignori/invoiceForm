@@ -3,9 +3,7 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/var/www/invoice/php/deleteinvoice.php</file>
-            <file>file:/var/www/invoice/php/viewinvoice.php</file>
-            <file>file:/var/www/invoice/php/thankyou.php</file>
+            <file>file:/var/www/invoice/php/viewfileinvoices.php</file>
         </group>
     </open-files>
 </project-private>

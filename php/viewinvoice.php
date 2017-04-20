@@ -157,8 +157,6 @@ into each HTML div tage.-->
             var everything = "<?php
                             if(isset($_POST['invoiceNum'])) {
                            $filename = 'invoice' . $_POST['invoiceNum'] . '.txt';
-                           fclose($filename);
-                           chown($filename, 666);
                            echo file_get_contents($filename);
                          } elseif (isset($_POST['invoice-number'])) {
                            echo $_POST['invoice-contents'];
@@ -187,6 +185,7 @@ into each HTML div tage.-->
                                   ?>";
             viewInvoice(everything, invoiceName,  invoiceAuthor, creationDate);
         }
+
     </script>
     <script type='text/javascript' src='../js/viewinvoice.js'></script>
     <script type='text/javascript' src='../js/window.js'></script>

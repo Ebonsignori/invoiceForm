@@ -1,5 +1,4 @@
-<!-- View Invoices Page From Database -->
-<!-- In the works -->
+<!-- View invoices page for invocies stored in database -->
 <html>
     <head>
         <title>Invoices From Database</title>
@@ -25,16 +24,8 @@
               {
               echo "Failed to connect to MySQL: " . mysqli_connect_error();
               }
-            // TODO: Implment list in order of title, author, and date.
-            //Determine order to sort invoices by
-            $orderBy = $_POST['order-by'];
-            if (isset($orderBy)) {
-                //SQL select statment to display titles in specified order
-                $sqlSelect='SELECT * FROM invoices ORDER BY '.$orderBy.'';
-            } else {
-              //Sort by submission_date/creation date by default
-                $sqlSelect="SELECT * FROM invoices ORDER BY submission_date";
-            }
+
+            $sqlSelect="SELECT * FROM invoices ORDER BY invoice_author";
 
             if ($result=mysqli_query($conn,$sqlSelect, MYSQLI_USE_RESULT))
             {
@@ -61,10 +52,8 @@
          <form method="post" action="deleteinvoice">
               <input type="hidden" name="invoice-number" value="'
                 . $rows[$i][0] . '" />
-              <input type="hidden"  name="invoiceTitleDel" value="' .
-              $rows[$i][1] . '" />
-              <input style="float:right;  margin: 5px;" class="select-button"
-                 type="submit" value="Delete: ' . $rows[$i][1] . '" />
+              <input id="delete-bt" class="select-button"
+               type="submit" value="Delete: ' . $rows[$i][1] . '" />
          </form>
       </div>';
             }
