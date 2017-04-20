@@ -119,7 +119,7 @@ into each HTML div tage.-->
             <div id="viewdata">
                 <a href="viewdbinvoices.php" > View Invoices from Database </a>
                 </br>
-                <a href="viewfileinvoices.php" > View Invoices from file </a>
+                <a href="viewfileinvoices.php" > View Invoices from Files </a>
             </div>
 
         </div>
@@ -150,12 +150,13 @@ into each HTML div tage.-->
     </div>
 
     <!-- Information Window -->
-    <div id="window" style="overflow:scroll;">
+    <div id="window" class="window" style="overflow:scroll;">
         <h2 style="text-decoration:underline grey"> Invoice Information </h2>
-          <div><h3 id="author"> Author </h3></div>
-          <div><h3 id="date-created"> Date Created </h3></div>
+          <div><h3 id="author" style="text-align: center;"> Author </h3></div>
+          <div><h3 id="date-created" style="text-align: center;"> Date Created </h3></div>
+          <div><h3 id="status" style="color: red; text-align: center; font-style: italic;">
+            Status </h3></div>
           <div><button id="close-win" onclick="closeWindow()"> Close </button></div>
-          <div><h3 id="status" style="color: red; font-style: italic;"> Status </h3></div>
     </div>
 
     <!--

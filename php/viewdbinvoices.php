@@ -22,7 +22,7 @@
               echo "Failed to connect to MySQL: " . mysqli_connect_error();
               }
 
-            $sqlSelect="SELECT * FROM invoices ORDER BY invoice_author";
+            $sqlSelect="SELECT * FROM invoices ORDER BY submission_date";
 
             if ($result=mysqli_query($conn,$sqlSelect, MYSQLI_USE_RESULT))
             {

@@ -1,8 +1,11 @@
 //View Invoice From String Passed through PHP $_POST
 function viewInvoice (everything, invoiceName, invoiceAuthor, creationDate) {
     if (invoiceName != "-1") {
-      document.getElementById('author').innerHTML = "Created By: " + invoiceAuthor;
-      document.getElementById('date-created').innerHTML = "Created On: " + creationDate;
+      document.getElementById('author').innerHTML = "Created By: <br / >" + invoiceAuthor;
+      document.getElementById('date-created').innerHTML = "Created On: <br / >" + creationDate;
+    } else {
+      document.getElementById('author').innerHTML = "Use database storage to view author and date information.";
+      document.getElementById('date-created').style.display = "none";
     }
 
     var invoiceNumber = everything.substring(0, everything.indexOf('*'));

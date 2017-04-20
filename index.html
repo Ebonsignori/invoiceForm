@@ -132,6 +132,9 @@
                 </form>
                 <br />
                 <button type="button" id="bt-refresh" onclick="generateRandom()">Fill Out With Random Values</button>
+                <br />
+                <button id="delete-bt" type="button"
+                onclick="openWindow2()" style="float:none;" > Generate 100 Database Invoices </button>
             </div>
             <!-- View from file to view invoices stored on file. Database storage is in the works. -->
             <div id="viewdata">
@@ -169,8 +172,8 @@
         </table>
     </div>
 
-<!-- Confirmation Window -->
-<div id="window">
+<!-- Confirmation Window for Database Save-->
+<div id="window" class="window">
     <h2> Save Invoice to Database </h2>
       <label> Invoice Title: </label>
       <div><input id="db-title-win" type="text"
@@ -181,6 +184,21 @@
       <br />
       <div><button onclick="thankYouDB()"> Save Invoice </button></div>
       <div><button id="close-win" onclick="closeWindow()"> Close </button></div>
+</div>
+
+<!-- Confirmation Window for Database Save-->
+<div id="window-populateDB" class="window">
+    <h2 style="color: red; margin-top: -10px;"> WARNING </h2>
+      <p> Confirming will remove your current database invoices
+        and generate 100 invoices. </p>
+        <p> This is purely demonstrational and may take a minute to process. </p>
+        <p> Proceed? </p>
+        <div>
+      <button onclick="location.href = 'populateDatabase.php'" class="yes-bt">
+         Yes </button>
+      <button id="close-win-populateDB" class="no-bt" onclick="closeWindow2()">
+        No </button>
+      </div>
 </div>
 
     <!-- Scripts Loaded at bottom of page to save loadtime -->

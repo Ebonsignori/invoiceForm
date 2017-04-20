@@ -61,6 +61,11 @@ textarea:hover {
     justify-content:center;
 }
 
+.wrapper-center {
+    display:flex;
+    justify-content:center;
+}
+
 #wrapper-buttons {
     width: 900px;
     margin: 0 auto;
@@ -273,7 +278,7 @@ table td, table th {
 }
 
 /* Pop Up Verification Window */
-#window {
+.window {
     background-color: rgba(0, 0, 0, .9);
     display: none;
     position: fixed;
@@ -289,30 +294,55 @@ table td, table th {
     padding: 25px;
 }
 
-#window *:NOT(button):NOT(input) {
+.window *:NOT(button):NOT(input) {
     color: white;
     display: flex;
     justify-content: center;
 }
 
-#window button {
+.window p {
+  text-align: center;
+}
+
+.window button {
     font-size: 20px;
 }
 
-#window #close-win{
+.window #close-win{
     background-color: skyblue;
 }
 
-#window #close-win:hover {
+.window #close-win:hover {
     background-color: red;
 }
 
 
-#window input{
+.window input{
     width: 80%;
 }
 
-#window div{
+.window div{
     display: flex;
     justify-content: center;
+}
+
+/* Yes and No Buttons */
+.yes-bt {
+  border-color:white;
+  background-color: rgba(255, 0, 0, 0.81)
+}
+
+.yes-bt:hover {
+  background-color: white;
+  color: black;
+}
+
+.no-bt {
+  border-color:white;
+  background-color: rgba(59, 255, 0, 0.81);
+}
+
+.no-bt:hover {
+  background-color: white;
+  color: black;
 }
