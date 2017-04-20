@@ -50,9 +50,9 @@
                    </form>
                    <form id="invoice' . $fileNum . 'Delete" name="invoiceSelect"
                        method="post" action="deleteinvoice">
-                           <input type="hidden"  value="' .
-                    $fileNum . '" />
-                           <input id="delete-bt" name="invoiceNumDel"
+                       <input type="hidden"  name="invoiceNumDel"
+                              value="'. $fileNum .'" />
+                      <input id="delete-bt" name="del"
                            class="select-button"
                            type="submit" value="Delete Invoice' . $fileNum . '" />
                    </form>
@@ -119,7 +119,8 @@
             }
             //If no invoices are present display empty message instead
             if ($numberOfInvoices == 0) {
-                echo "<h2> No Invoices Stored In Files </h2>";
+                echo '<div id="wrapper-center-children"> <h2> No Invoices
+                Stored In Files </h2> </div>';
             }
             ?>
 

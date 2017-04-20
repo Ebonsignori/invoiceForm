@@ -30,6 +30,10 @@
             mysqli_free_result($result);
             }
             $numberOfRows = count($rows);
+            if ($numberOfRows == 0) {
+              echo '<div id="wrapper-center-children"> <h2> No Invoices
+              Stored In Database </h2> </div>';
+            }
             for ($i = 0; $i < $numberOfRows; $i++) {
               echo '<div id="thank-you-buttons">
           <form method="post" action="viewinvoice">

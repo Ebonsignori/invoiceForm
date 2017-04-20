@@ -83,17 +83,27 @@ into each HTML div tage.-->
 
             <div id="actionbuttons">
                 <!-- Buttons delete or redirect to new form-->
-                <form id="invoice'.$fileNum.'Delete" name="invoiceSelect"
-                      method="post" action="deleteinvoice"
-                      style="margin-right: 15px;">
+                <?php
+                // If invoice is from file
+                if (isset($_POST['invoiceNum'])) {
+                  echo '<form name="invoiceSelect" style="margin-right: 15px;"
+                      method="post" action="deleteinvoice" >
                     <input type="hidden"  name="invoiceNumDel"
-                           value="<?php echo $_POST['invoiceNum']; ?>" />
-                    <input type="submit" style="width: 100%;
-                           display: inline-block;" class="thanks-button"
-                           value="Delete Invoice <?php
-                           echo $_POST['invoiceNum'];
-                           ?>" />
-                </form>
+                           value="'.$_POST['invoiceNum'].'" />
+                    <input type="submit" style="width:100%;"
+                           value="Delete Invoice #'. $_POST['invoiceNum'] .'" />
+                            </form>';
+                 // If invoice is from database
+                 } elseif (isset($_POST['invoice-number'])) {
+                   echo '<form name="invoiceSelect" style="margin-right: 15px;"
+                         method="post" action="deleteinvoice">
+                       <input type="hidden"  name="invoice-number"
+                              value="'.$_POST['invoice-number'].'" />
+                       <input type="submit" style="width:100%;"
+                       value="Delete Invoice '.$_POST['invoice-name'].'" />
+                       </form>';
+                 }
+                ?>
                 <form style="margin-right: 15px;">
                     <input class="thanks-button" style="width: 100%;
                            display: inline-block;" type="button"
@@ -139,7 +149,7 @@ into each HTML div tage.-->
         </table>
     </div>
 
-    <!-- Confirmation Window -->
+    <!-- Information Window -->
     <div id="window" style="overflow:scroll;">
         <h2 style="text-decoration:underline grey"> Invoice Information </h2>
           <div><h3 id="author"> Author </h3></div>
@@ -153,6 +163,7 @@ into each HTML div tage.-->
    parsing/decoding. The viewInvoice function populates each div element.
     -->
     <script>
+    // Each variable holds content depending on if invoice is from file or db
         function onLoad() {
             var everything = "<?php
                             if(isset($_POST['invoiceNum'])) {
@@ -183,6 +194,7 @@ into each HTML div tage.-->
                                     echo '-1';
                                   }
                                   ?>";
+            // Function populates page with values from both file and database
             viewInvoice(everything, invoiceName,  invoiceAuthor, creationDate);
         }
 

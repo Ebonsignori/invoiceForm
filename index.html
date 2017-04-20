@@ -1,9 +1,10 @@
 <!DOCTYPE html>
+<html>
 <!-- Assignment3 : Editable Invoice By Evan Bonsignori -->
 
 <head>
     <title>Editable Invoice</title>
-    <link rel='stylesheet' type='text/css' href='css/main.css' />
+    <link rel="stylesheet" type="text/css" href="css/main.css" />
 </head>
 
 <body>
@@ -12,59 +13,59 @@
 
         <!-- Top Center of Page Heading Title -->
         <div id="header">New Invoice</div>
-        
+
         <!-- Top left, customer name, address, and contact information -->
-        <div id="identity"> 
-            <textarea class="address" id="nameAddress" 
-                      placeholder="First Name Last Name (George Harrison)" 
-                      maxlength="44" autofocus></textarea> 
-            </br>
-            <textarea class="address" id="streetAddress" 
+        <div id="identity">
+            <textarea class="address" id="nameAddress"
+                      placeholder="First Name Last Name (George Harrison)"
+                      maxlength="44" autofocus></textarea>
+            <br />
+            <textarea class="address" id="streetAddress"
                       placeholder="Street Address (123 AppleBee Lane) "
                       maxlength="44"></textarea>
-            </br>
-            <textarea class="address" id="cspAddress" 
+            <br />
+            <textarea class="address" id="cspAddress"
                       placeholder="City State Postal (Savannah GA 31410)"
-                      maxlength="44"></textarea>  
-            </br>
-            <textarea class="address" id="phoneAddress" 
-                      placeholder="Phone Number (912 542 1234)" 
-                      maxlength="14"></textarea> 
-            </br>
-            </br>               
-        </div>  
+                      maxlength="44"></textarea>
+            <br />
+            <textarea class="address" id="phoneAddress"
+                      placeholder="Phone Number (912 542 1234)"
+                      maxlength="14"></textarea>
+            <br />
+            <br />
+        </div>
         <!-- Top Right Table: Invoice Number, Date, and Amount Due Rows -->
         <div id="customer">
             <!-- Invoice ID And Data Have No Validation other than length and can be empty if need be -->
-            <table class="tables"> 
+            <table class="tables">
                 <tr>
-                    <td class="title">Invoice #</td> 
-                    <td><textarea class="titles" id="invoiceTitle" 
-                        placeholder="1234567890" maxlength="20"></textarea></td> 
-                </tr>  
-                <tr> 
+                    <td class="title">Invoice #</td>
+                    <td><textarea class="titles" id="invoiceTitle"
+                        placeholder="1234567890" maxlength="20"></textarea></td>
+                </tr>
+                <tr>
 
                     <td class="title">Date</td>
-                    <td><textarea class="titles" id="date" 
+                    <td><textarea class="titles" id="date"
                                maxlength="20">JavaScript Error</textarea></td>
                 </tr>
                 <tr>
                     <td class="title">Amount Due</td>
                     <td><div class="titles" id="due1">$1.75</div></td>
-                </tr> 
+                </tr>
 
             </table>
 
         </div>
         <!-- Above Data Forms - Invoice Title Can Be Edited -->
-        <div id="invoice"> INVOICE </div> 
+        <div id="invoice"> INVOICE </div>
 
         <table id="items">
 
             <tr>
                 <th>Item</th>
                 <th>Description</th>
-                <th>Unit Cost</th> 
+                <th>Unit Cost</th>
                 <th>Quantity</th>
                 <th>Price</th>
             </tr>
@@ -85,10 +86,10 @@
                 </td>
                 <td><textarea class="cost" onkeyup="updateTotal()" maxlength="15">$30.00</textarea></td>
 
-                <td><textarea class="qty" onkeyup="updateTotal()" maxlength="10">3</textarea></td> 
+                <td><textarea class="qty" onkeyup="updateTotal()" maxlength="10">3</textarea></td>
 
                 <td><span class="price">$90.00</span></td>
-            </tr> 
+            </tr>
 
             <tr class="item-row">
                 <td class="item-name">
@@ -102,8 +103,8 @@
 
                 <td class="description"><textarea class="namedescription" maxlength="500" style="overflow:auto;">Processing Fees</textarea></td>
                 <td><textarea class="cost" onkeyup="updateTotal()" style="width:100%;" maxlength="15">$10.00</textarea></td>
-                <td><textarea class="qty" onkeyup="updateTotal()" maxlength="10">1</textarea></td> 
-                <td><span class="price">$10.00</span></td> 
+                <td><textarea class="qty" onkeyup="updateTotal()" maxlength="10">1</textarea></td>
+                <td><span class="price">$10.00</span></td>
             </tr>
             <!-- Button that calls Javascript to add additional Row With Default Values -->
             <tr id="hiderow">
@@ -111,19 +112,19 @@
             </tr>
         </table>
 
-        <div id="options"> 
+        <div id="options">
             <!-- Reset Resets Text all to null, Save To Databases is in the works, and Save to File saves invoice to file on server -->
             <div id="actionbuttons">
                 <button type="button" id="bt-reset" onclick="resetValues()">Reset Values</button>
-                <button type="button" id="bt-refresh" onclick="refreshPage()">Reset Entire Form</button>
+                <button type="button" onclick="refreshPage()">Reset Entire Form</button>
                 <br />
                 <form id="hiddenform_db" name="hiddenform_db" method="post" action="php/thankyou"
-                      style="display:inline;"> 
+                      style="display:inline;">
                     <input type="hidden" name="total-db" id="total-db" value="" />
                     <input type="hidden" name="author-db" id="author-db" value="" />
-                    <input type="hidden" name="title-db" id="title-db" value="" />             
+                    <input type="hidden" name="title-db" id="title-db" value="" />
                     <input type="button" id="bt-db" onclick="databaseWindow()" value="Save to Database" />
-                </form>    
+                </form>
                 <form id="hiddenform" name="hiddenform" method="post" action="php/thankyou"
                       style="display:inline;">
                     <input type="hidden" name="total" id="total" value="" />
@@ -135,13 +136,13 @@
             <!-- View from file to view invoices stored on file. Database storage is in the works. -->
             <div id="viewdata">
                 <a href="php/viewdbinvoices.php" > View Invoices from Database </a>
-                </br>
-                <a href="php/viewfileinvoices.php" > View Invoices from file </a>
+                <br />
+                <a href="php/viewfileinvoices.php" > View Invoices from Files </a>
             </div>
 
         </div>
-        <!-- Bottom Right Customer Totals : Tax is a percentage as shown in the 
-        example. Entering 5 will add 5% tax.  Amount paid will be subtracted 
+        <!-- Bottom Right Customer Totals : Tax is a percentage as shown in the
+        example. Entering 5 will add 5% tax.  Amount paid will be subtracted
         from balance due-->
         <table style="float:right; ">
             <tr>
@@ -154,7 +155,7 @@
             </tr>
             <tr>
                 <td colspan="2" >Total</td>
-                <td><div class ="totals" id="totalamount">$105.00</div></td> 
+                <td><div class ="totals" id="totalamount">$105.00</div></td>
             </tr>
             <tr>
                 <td colspan="2">Amount Paid</td>
@@ -167,15 +168,15 @@
 
         </table>
     </div>
-    
+
 <!-- Confirmation Window -->
 <div id="window">
     <h2> Save Invoice to Database </h2>
       <label> Invoice Title: </label>
-      <div><input id="db-title-win" type="text" 
+      <div><input id="db-title-win" type="text"
                   placeholder="Web Design Invoice"/></div>
       <label> Invoice Author: </label>
-      <div><input id="db-author-win" type="text" 
+      <div><input id="db-author-win" type="text"
                   placeholder="Evan Bonsignori" /></div>
       <br />
       <div><button onclick="thankYouDB()"> Save Invoice </button></div>
@@ -187,11 +188,11 @@
     //Refresh Page to Reset Entire Form
     function refreshPage(){
         window.location.reload();
-    } 
+    }
     </script>
-    <script type='text/javascript' src='js/main.js'></script>
-    <script type='text/javascript' src='js/validation.js'></script>
-    <script type='text/javascript' src='js/window.js'></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/validation.js"></script>
+    <script type="text/javascript" src="js/window.js"></script>
 
 </body>
 
