@@ -11,10 +11,9 @@
         <div id="wrapper-center-children">
 
             <div id="header">Invoices Stored In Files</div>
-        </div>
-        <div id="wrapper-center"
+
             <h1> Invoices: </h1>
-        </div>
+
             <?PHP
             //Scan through directory to find all invoice files
             $numberOfInvoices = 0;
@@ -49,6 +48,7 @@
                            class="select-button"
                            type="submit" value="View Invoice' . $fileNum . '" />
                    </form>
+                   _
                    <form id="invoice' . $fileNum . 'Delete" name="invoiceSelect"
                        method="post" action="deleteinvoice">
                        <input type="hidden"  name="invoiceNumDel"
@@ -80,6 +80,7 @@
                            <input style="float:left; margin: 5px;" class="select-button"
                            type="submit" value="View Invoice' . $fileNum . '" />
                    </form>
+                   _
                    <form id="invoice' . $fileNum . 'Delete" name="invoiceSelect"
                        method="post" action="deleteinvoice">
                            <input type="hidden"  name="invoiceNumDel" value="' .
@@ -112,6 +113,7 @@
                            <input style="float:left; margin: 5px;" class="select-button"
                            type="submit" value="View Invoice' . $fileNum . '" />
                    </form>
+                   _
                    <form name="invoiceSelect" method="post" action="deleteinvoice">
                            <input type="hidden"  name="invoiceNumDel" value="' .
                         $fileNum . '" />
