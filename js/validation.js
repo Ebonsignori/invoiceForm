@@ -30,6 +30,15 @@ function databaseWindow() {
 // TODO: Implement database validation
 //Checks Validation of inoice title and author recieved from window prompt
 function windowValidation() {
+  var title = document.getElementById("db-title-win").value;
+  var author = document.getElementById("db-author-win").value;
+  if (!title.match(/^[A-Za-z\s]+$/)) {
+    alert("Please enter a valid title without numbers or special characters.");
+    return false;
+  } else if (!author.match(/^[A-Za-z\s]+$/)) {
+    alert("Please enter a valid author without numbers or special characters.");
+    return false;
+  }
   return true;
 }
 

@@ -195,8 +195,10 @@
                     <div id="header">Confirm</div>
 
                     <h1> Thank You! </h1>
-                    <p> Invoice: <b> ' . $invoiceName . ' </b> has successfully
-                        been written to a file. </p>
+                    <p> <b style="margin-left:5px; margin-right:5px;"> '
+                     . $invoiceName . ' </b> by <b style="margin-left:5px; margin-right:5px;"> '
+                     . $invoiceAuthor . ' </b> has successfully
+                        been written to the database. </p>
                     <div id="wrapper-center-children">
                         <input class="thanks-button" type="button"
                             onclick="location.href = \'../php/viewdbinvoices.php\';"
