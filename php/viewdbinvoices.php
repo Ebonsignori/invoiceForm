@@ -10,7 +10,7 @@
 
             <div id="header">Invoices Stored In Database</div>
 
-            <h1> Invoices: </h1>
+            <h1> Invoices </h1>
 
             <?php
             //Server info encapsulated for security
@@ -36,6 +36,7 @@
             }
             for ($i = 0; $i < $numberOfRows; $i++) {
               echo '<div id="thank-you-buttons">
+              <span>
           <form method="post" action="viewinvoice">
                  <input type="hidden" name="invoice-number" value="'
               . $rows[$i][0] . '" />
@@ -50,12 +51,14 @@
                  <input style="float:left; margin: 5px;" class="select-button"
                  type="submit" value="View: ' . $rows[$i][1] . '" />
          </form>
+         _
          <form method="post" action="deleteinvoice">
               <input type="hidden" name="invoice-number" value="'
                 . $rows[$i][0] . '" />
               <input id="delete-bt" class="select-button"
                type="submit" value="Delete: ' . $rows[$i][1] . '" />
          </form>
+         </span>
       </div>';
             }
 
@@ -63,10 +66,17 @@
 
 
              ?>
+             <div id="wrapper-center-children">
+             <input class="yes-bt" style="min-width:200px; border-color:black;"
+             type="button"
+                    onclick="location.href = '../cleartable.php';"
+                    value="Clear Database Invoices" />
+             </div>
 
 
                 <div id="wrapper-center-children">
-                <input class="thanks-button" style="min-width:200px;" type="button"
+                <input class="thanks-button"
+                style="min-width:200px; margin: 5px;" type="button"
                        onclick="location.href = '../index.html';"
                        value="Go Back To New Invoice Page" />
                 </div>

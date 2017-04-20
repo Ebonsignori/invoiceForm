@@ -3,9 +3,12 @@
 <html>
 	<head>
 		<meta charset="utf-8">
+		<link rel="stylesheet" type="text/css" href="css/main.css" />
 		<title>Populate Database</title>
 	</head>
 	<body>
+		<div id="wrapper-center-children" style="text-align:center;">
+		<div id="header">Populate Database</div>
 		<p> Querying Database ... </p>
 		<?php
 		/* If verification is approved to delete old tables and generate 100
@@ -31,7 +34,7 @@
 				echo '<p> Success! <br /> Connected to database </p>';
 			}
 
-			// Remove Old Invoie table
+			// Remove Old Invoice table
       echo '<p> Attempting to remove old invoice table... </p>';
 			$result = mysqli_query($conn, "show tables like 'invoices';");
 			if ($result->num_rows > 0) {
@@ -45,7 +48,7 @@
 			//Create new invoice table
 			echo '<p> Attempting to create new invoice table... </p>';
 			if ($result = mysqli_query($conn, $newTable)) {
-				echo '<p> Success! <br /> Created new table </p<';
+				echo '<p> Success! <br /> Created new table </p>';
 			} else {
 				echo '<p> Failed to create new invoice table. </p>';
 				die();
@@ -104,6 +107,19 @@
 					return randomNumber(1).'**everything**undefined**end**NgfYVSxBoi**next**9MAFp5UdEU**next**IkWuefdYRa**next**4190072433**next****end**7482380948**next**April 19, 2017**next**$77990496381582737408.00**next****end**2**end** INVOICE **end**otWCkiMfFw**znext**mCzjVXTsny**next****end**IbKkHuYvOF**next**XGaEVDycmR**next****end**5887867226**next**7172965337**next****end**2829840000**next**8549988925**next****end**$16661722190823839744.00**next**$61328774190758895616.00**next****end**$77990496381582737408.00**next**$77990496381582737408.00**next**$77990496381582737408.00**next****end**0**next**0**next****fin**';
 			}
 		?>
+
+		<!-- Naviagtion buttons to go back to other pages -->
+			<div>
+				<input class="thanks-button" style="min-width:150px;" type="button"
+							 onclick="location.href = './index.html';"
+							 value="Create New Form" />
+		</div>
+		<div>
+			<input class="thanks-button" style="min-width:150px;" type="button"
+						 onclick="location.href = './php/viewdbinvoices.php';"
+						 value="View Files From Database" />
+	</div>
+</div>
 
 	</body>
 </html>

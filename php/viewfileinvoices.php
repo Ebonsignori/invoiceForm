@@ -8,7 +8,7 @@
     </head>
 
     <body>
-        <div id="wrapper-center">
+        <div id="wrapper-center-children">
 
             <div id="header">Invoices Stored In Files</div>
         </div>
@@ -40,6 +40,7 @@
                     $numberOfInvoices++;
                     echo
                     '<div id="thank-you-buttons">
+                    <span>
                     <form id="invoice' . $fileNum . 'Select" name="invoiceSelect"
                         method="post" action="viewinvoice">
                            <input type="hidden" name="invoiceNum" value="'
@@ -53,9 +54,10 @@
                        <input type="hidden"  name="invoiceNumDel"
                               value="'. $fileNum .'" />
                       <input id="delete-bt" name="del"
-                           class="select-button"
+                           class="select-button" style="float:right; margin: 5px;"
                            type="submit" value="Delete Invoice' . $fileNum . '" />
                    </form>
+                   </span>
                 </div>';
                 }
             }
@@ -70,6 +72,7 @@
                         $numberOfInvoices++;
                         echo
                         '<div id="thank-you-buttons">
+                        <span>
                     <form id="invoice' . $fileNum . 'Select" name="invoiceSelect"
                         method="post" action="viewinvoice">
                            <input type="hidden" name="invoiceNum" value="'
@@ -81,9 +84,10 @@
                        method="post" action="deleteinvoice">
                            <input type="hidden"  name="invoiceNumDel" value="' .
                         $fileNum . '" />
-                           <input id="delete-bt" class="select-button"
+                           <input id="delete-bt" class="select-button" style="float:right; margin: 5px;"
                            type="submit" value="Delete Invoice' . $fileNum . '" />
                    </form>
+                   </span>
                 </div>';
                     }
                 }
@@ -100,6 +104,7 @@
                         $numberOfInvoices++;
                         echo
                         '<div id="thank-you-buttons">
+                        <span>
                     <form id="invoice' . $fileNum . 'Select" name="invoiceSelect"
                         method="post" action="viewinvoice">
                            <input type="hidden" name="invoiceNum" value="'
@@ -110,9 +115,11 @@
                    <form name="invoiceSelect" method="post" action="deleteinvoice">
                            <input type="hidden"  name="invoiceNumDel" value="' .
                         $fileNum . '" />
-                           <input  id="delete-bt"        class="select-button"
-                           type="submit" value="Delete Invoice' . $fileNum . '" />
+                           <input  id="delete-bt"  style="float:left; margin: 5px;"
+                            class="select-button" type="submit" value="Delete Invoice'
+                            . $fileNum . '" />
                    </form>
+                   </span>
                 </div>';
                     }
                 }
