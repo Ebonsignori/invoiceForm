@@ -169,11 +169,9 @@
                     </div>
                 </div>';
             //TODO: Secure MySql login info
-            //Server Info
-            $server = 'localhost';
-            $user = 'eb3465';
-            $pwd = '55452112eb';
-            $db = 'invoicestorage';
+
+            //Server info encapsulated for security
+            include("../../.-/.+.php");
 
             $conn = mysqli_connect($server, $user, $pwd, $db);
 
