@@ -16,7 +16,7 @@
 		//if (isset($_POST['generate-one-hundred']) && isset($_POST['i-am-sure'])) {
 			//SQL statements to be queried
 			$newTable = 'CREATE TABLE invoices (invoice_id INT NOT NULL AUTO_INCREMENT,
-				invoice_title VARCHAR(100) NOT NULL, invoice_author VARCHAR (50) NOT NULL,
+				invoice_title VARCHAR(50) NOT NULL, invoice_author VARCHAR (50) NOT NULL,
 				submission_date DATE, invoice_contents LONGBLOB NOT NULL,
 				PRIMARY KEY (invoice_id) ) ;';
 		  $dropTable = 'DROP TABLE invoices';
