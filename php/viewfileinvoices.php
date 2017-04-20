@@ -134,11 +134,33 @@
             ?>
 
             <!-- Navigation Button -->
+            <div id="wrapper-center-children">
+            <input class="yes-bt" style="min-width:200px; border-color:black;"
+            type="button"
+                   onclick="openWindow2()"
+                   value="Clear File Invoices" />
+            </div>
+
             <div id="wrapper-center" >
                 <input class="select-button" style="min-width:200px;" type="button"
                        onclick="location.href = '../index.html';"
                        value="Go Back To New Invoice Page" />
             </div>
+
+            <!-- Confirmation Window for Database Deletion-->
+            <div id="window-populateDB" class="window" style="height:150px; display:none;">
+                <h2 style="color: red; margin-top: -10px;"> WARNING </h2>
+                  <p> Confirming will remove all of you current file invoices. </p>
+                    <p> Proceed with deletion? </p>
+                    <div>
+                  <button onclick="location.href = '../clearfileinvoices.php'" class="yes-bt">
+                     Yes </button>
+                  <button id="close-win-populateDB" class="no-bt" onclick="closeWindow2()">
+                    No </button>
+                  </div>
+            </div>
+
+            <script type="text/javascript" src="../js/window.js"></script>
 
         </div>
 

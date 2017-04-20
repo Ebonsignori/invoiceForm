@@ -23,7 +23,6 @@ button:hover,input:hover {
 
 #delete-bt {
 float:right;
-opacity: 0.9;
 background-color:#d24511;
 background-color:rgba(210, 69, 17, 0.9);
 margin: 5px;

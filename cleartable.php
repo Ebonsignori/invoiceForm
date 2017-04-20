@@ -60,7 +60,7 @@
  		<div>
  			<input class="thanks-button" style="min-width:150px;" type="button"
  						 onclick="location.href = './php/viewdbinvoices.php';"
- 						 value="View Files From Database" />
+ 						 value="View Invoices From Database" />
  				 </div>
 
 		 </div>
