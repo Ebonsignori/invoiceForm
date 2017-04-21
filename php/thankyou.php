@@ -6,7 +6,7 @@
     </head>
 
     <body>
-<?PHP
+<?php
 
         //If save to file option, run the following:
         if (isset($_POST['total'])) {
@@ -37,13 +37,12 @@
             //Creates a file with filenumber one greater than highest invoice
             if ($fileHandle = fopen($filename, "w")) {
                 if (flock($fileHandle, LOCK_EX)) {
-
                     $content = $_POST['total'];
                     fwrite($fileHandle, $fileNumber . $content);
                     flock($fileHandle, LOCK_UN);
                 } else {
                     echo '<h1> Error Locking Resourses Please Try Again.</h1>';
-                    DIE;
+                    die;
                 }
 
                 if (fclose($fileHandle)) {
@@ -184,7 +183,7 @@
                 printf("Connect failed: %s\n", mysqli_connect_error());
                 exit();
             }
-            if (!mysqli_query($conn, $insertdata) ) {
+            if (!mysqli_query($conn, $insertdata)) {
                 echo '<p>' . $failmsg . '</p>';
             } else {
                 mysqli_close($conn);

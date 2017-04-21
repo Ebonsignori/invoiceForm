@@ -14,7 +14,7 @@
 
             <h1> Invoices: </h1>
 
-            <?PHP
+            <?php
             //Scan through directory to find all invoice files
             $numberOfInvoices = 0;
             $files = scandir('.');
@@ -27,7 +27,7 @@
                 if (strlen($file) > 13) {
                     $threeDigitFiles[] = $file;
                     continue;
-                } else if (strlen($file) > 12) {
+                } elseif (strlen($file) > 12) {
                     $twoDigitFiles[] = $file;
                     continue;
                 } else {
@@ -41,7 +41,7 @@
                     '<div id="thank-you-buttons">
                     <span>
                     <form id="invoice' . $fileNum . 'Select" name="invoiceSelect"
-                        method="post" action="viewinvoice">
+                        method="post" action="viewinvoice.php">
                            <input type="hidden" name="invoiceNum" value="'
                     . $fileNum . '" />
                            <input style="float:left; margin: 5px;"
@@ -50,7 +50,7 @@
                    </form>
                    _
                    <form id="invoice' . $fileNum . 'Delete" name="invoiceSelect"
-                       method="post" action="deleteinvoice">
+                       method="post" action="deleteinvoice.php">
                        <input type="hidden"  name="invoiceNumDel"
                               value="'. $fileNum .'" />
                       <input id="delete-bt" name="del"
@@ -74,7 +74,7 @@
                         '<div id="thank-you-buttons">
                         <span>
                     <form id="invoice' . $fileNum . 'Select" name="invoiceSelect"
-                        method="post" action="viewinvoice">
+                        method="post" action="viewinvoice.php">
                            <input type="hidden" name="invoiceNum" value="'
                         . $fileNum . '" />
                            <input style="float:left; margin: 5px;" class="select-button"
@@ -82,7 +82,7 @@
                    </form>
                    _
                    <form id="invoice' . $fileNum . 'Delete" name="invoiceSelect"
-                       method="post" action="deleteinvoice">
+                       method="post" action="deleteinvoice.php">
                            <input type="hidden"  name="invoiceNumDel" value="' .
                         $fileNum . '" />
                            <input id="delete-bt" class="select-button" style="float:right; margin: 5px;"
@@ -107,14 +107,14 @@
                         '<div id="thank-you-buttons">
                         <span>
                     <form id="invoice' . $fileNum . 'Select" name="invoiceSelect"
-                        method="post" action="viewinvoice">
+                        method="post" action="viewinvoice.php">
                            <input type="hidden" name="invoiceNum" value="'
                         . $fileNum . '" />
                            <input style="float:left; margin: 5px;" class="select-button"
                            type="submit" value="View Invoice' . $fileNum . '" />
                    </form>
                    _
-                   <form name="invoiceSelect" method="post" action="deleteinvoice">
+                   <form name="invoiceSelect" method="post" action="deleteinvoice.php">
                            <input type="hidden"  name="invoiceNumDel" value="' .
                         $fileNum . '" />
                            <input  id="delete-bt"  style="float:left; margin: 5px;"

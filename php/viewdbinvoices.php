@@ -17,27 +17,25 @@
             include("../../.-/.+.php");
 
             $conn = mysqli_connect($server, $user, $pwd, $db);
-            if (mysqli_connect_errno())
-              {
-              echo "Failed to connect to MySQL: " . mysqli_connect_error();
-              }
+            if (mysqli_connect_errno()) {
+                echo "Failed to connect to MySQL: " . mysqli_connect_error();
+            }
 
             $sqlSelect="SELECT * FROM invoices ORDER BY submission_date";
 
-            if ($result=mysqli_query($conn,$sqlSelect, MYSQLI_USE_RESULT))
-            {
-            $rows = mysqli_fetch_all($result, MYSQLI_NUM);
-            mysqli_free_result($result);
+            if ($result=mysqli_query($conn, $sqlSelect, MYSQLI_USE_RESULT)) {
+                $rows = mysqli_fetch_all($result, MYSQLI_NUM);
+                mysqli_free_result($result);
             }
             $numberOfRows = count($rows);
             if ($numberOfRows == 0) {
-              echo '<div id="wrapper-center-children"> <h2> No Invoices
+                echo '<div id="wrapper-center-children"> <h2> No Invoices
               Stored In Database </h2> </div>';
             }
             for ($i = 0; $i < $numberOfRows; $i++) {
-              echo '<div id="thank-you-buttons">
+                echo '<div id="thank-you-buttons">
               <span>
-          <form method="post" action="viewinvoice">
+          <form method="post" action="viewinvoice.php">
                  <input type="hidden" name="invoice-number" value="'
               . $rows[$i][0] . '" />
                 <input type="hidden" name="invoice-name" value="'
@@ -52,7 +50,7 @@
                  type="submit" value="View: ' . $rows[$i][1] . '" />
          </form>
          _
-         <form method="post" action="deleteinvoice">
+         <form method="post" action="deleteinvoice.php">
               <input type="hidden" name="invoice-number" value="'
                 . $rows[$i][0] . '" />
               <input id="delete-bt" class="select-button"

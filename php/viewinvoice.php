@@ -86,28 +86,28 @@ into each HTML div tage.-->
                 <?php
                 // If invoice is from file
                 if (isset($_POST['invoiceNum'])) {
-                  echo '<form name="invoiceSelect" style="margin-right: 15px;"
-                      method="post" action="deleteinvoice" >
+                    echo '<form name="invoiceSelect" style="margin-right: 15px;"
+                      method="post" action="deleteinvoice.php" >
                     <input type="hidden"  name="invoiceNumDel"
                            value="'.$_POST['invoiceNum'].'" />
                     <input type="submit" style="width:100%;"
                            value="Delete Invoice #'. $_POST['invoiceNum'] .'" />
                             </form>';
                  // If invoice is from database
-                 } elseif (isset($_POST['invoice-number'])) {
-                   echo '<form name="invoiceSelect" style="margin-right: 15px;"
-                         method="post" action="deleteinvoice">
+                } elseif (isset($_POST['invoice-number'])) {
+                    echo '<form name="invoiceSelect" style="margin-right: 15px;"
+                         method="post" action="deleteinvoice.php">
                        <input type="hidden"  name="invoice-number"
                               value="'.$_POST['invoice-number'].'" />
                        <input type="submit" style="width:100%;"
                        value="Delete Invoice '.$_POST['invoice-name'].'" />
                        </form>';
-                 }
+                }
                 ?>
                 <form style="margin-right: 15px;">
                     <input class="thanks-button" style="width: 100%;
                            display: inline-block;" type="button"
-                           onclick="location.href = '../index';"
+                           onclick="location.href = '../index.html';"
                            value="Create New Form" />
                     <input class="thanks-button" style="width: 100%;
                             display: inline-block;" type="button"
@@ -167,32 +167,32 @@ into each HTML div tage.-->
     // Each variable holds content depending on if invoice is from file or db
         function onLoad() {
             var everything = "<?php
-                            if(isset($_POST['invoiceNum'])) {
-                           $filename = 'invoice' . $_POST['invoiceNum'] . '.txt';
-                           echo file_get_contents($filename);
-                         } elseif (isset($_POST['invoice-number'])) {
-                           echo $_POST['invoice-contents'];
-                         }
+                            if (isset($_POST['invoiceNum'])) {
+                                $filename = 'invoice' . $_POST['invoiceNum'] . '.txt';
+                                echo file_get_contents($filename);
+                            } elseif (isset($_POST['invoice-number'])) {
+                                echo $_POST['invoice-contents'];
+                            }
                            ?>";
             var invoiceName = "<?php
                                   if (isset($_POST['invoice-number'])) {
-                                    echo $_POST['invoice-name'];
+                                      echo $_POST['invoice-name'];
                                   } else {
-                                    echo '-1';
+                                      echo '-1';
                                   }
                               ?>";
             var invoiceAuthor = "<?php
                                   if (isset($_POST['invoice-number'])) {
-                                    echo $_POST['invoice-author'];
+                                      echo $_POST['invoice-author'];
                                   } else {
-                                    echo '-1';
+                                      echo '-1';
                                   }
                               ?>";
             var creationDate = "<?php
                                   if (isset($_POST['invoice-number'])) {
-                                    echo $_POST['creation-date'];
+                                      echo $_POST['creation-date'];
                                   } else {
-                                    echo '-1';
+                                      echo '-1';
                                   }
                                   ?>";
             // Function populates page with values from both file and database

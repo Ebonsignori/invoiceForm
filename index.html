@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<!-- Assignment3 : Editable Invoice By Evan Bonsignori -->
+<!-- Assignment4 : Editable Invoice By Evan Bonsignori -->
 
 <head>
     <title>Editable Invoice</title>
@@ -118,14 +118,14 @@
                 <button type="button" id="bt-reset" onclick="resetValues()">Reset Values</button>
                 <button type="button" onclick="refreshPage()">Reset Entire Form</button>
                 <br />
-                <form id="hiddenform_db" name="hiddenform_db" method="post" action="php/thankyou"
+                <form id="hiddenform_db" name="hiddenform_db" method="post" action="php/thankyou.php"
                       style="display:inline;">
                     <input type="hidden" name="total-db" id="total-db" value="" />
                     <input type="hidden" name="author-db" id="author-db" value="" />
                     <input type="hidden" name="title-db" id="title-db" value="" />
                     <input type="button" id="bt-db" onclick="databaseWindow()" value="Save to Database" />
                 </form>
-                <form id="hiddenform" name="hiddenform" method="post" action="php/thankyou"
+                <form id="hiddenform" name="hiddenform" method="post" action="php/thankyou.php"
                       style="display:inline;">
                     <input type="hidden" name="total" id="total" value="" />
                     <input onclick="thankYou()" type="button" id="bt-file"  value="Save to File" />
@@ -194,7 +194,7 @@
         <p> This is purely demonstrational and may take a minute to process. </p>
         <p> Proceed? </p>
         <div>
-      <button onclick="location.href = 'populateDatabase.php'" class="yes-bt">
+      <button onclick="location.href = 'populatedatabase.php'" class="yes-bt">
          Yes </button>
       <button id="close-win-populateDB" class="no-bt" onclick="closeWindow2()">
         No </button>
